@@ -11,7 +11,7 @@ RUN mvn package -DskipTests
 # Final stage
 FROM openjdk:17
 WORKDIR /app
-COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar docker-spring-boot.jar
+COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8070
-ENTRYPOINT ["java", "-jar", "docker-spring-boot.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 
