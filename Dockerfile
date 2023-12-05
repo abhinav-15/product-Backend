@@ -1,7 +1,8 @@
 
 # Final stage
 FROM openjdk:17
-ARG JAR_FILE=target/*.jar
-COPY ./target/docker-spring-boot.jar docker-spring-boot.jar
+VOLUME /tmp
 EXPOSE 8070
-ENTRYPOINT [ "java","-jar","docker-spring-boot.jar" ]
+ARG JAR_FILE=target/docker-spring-boot.jar
+ADD ${JAR_FILE} app.jar
+ENTRYPOINT [ "java","-jar","/app.jar"]
