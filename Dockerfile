@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:4.0.0 AS build
+FROM maven:3.8.4 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
